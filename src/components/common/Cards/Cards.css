@@ -3,7 +3,10 @@
   margin-top: 5%;
   padding: 1%;
   transform: scale(1);
+  overflow: hidden;
+  transition: ease-in-out;
   box-shadow: 0px 0px 15px -5px;
+  display: block;
 }
 
 .image-container img {
@@ -13,7 +16,86 @@
   margin: 2px;
 }
 
-.card-container:hover{
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
+.card-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px 0px;
+}
+
+.card-content {
+  margin: 1rem;
+  margin-top: 0.5rem;
+}
+
+h3,p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-title{
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn button{
+  padding: 0.5rem;
+  background-color: aqua;
+  border: none;
+  transition: 0.2s;
+  margin: 0.1em;
+}
+
+.btn:hover{
+  background-color:rgba(red, green, blue, alpha) ;
+}
+
+a{
+  text-transform: uppercase;
+  color: blueviolet;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
 }
