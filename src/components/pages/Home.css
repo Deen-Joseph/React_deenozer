@@ -15,7 +15,9 @@
   .high{
     height: 0px;
   }
-
+  .high2{
+    margin-top: 35px;
+    }
   @media (max-width: 1350px) {
     .flex-container {
       flex-direction: column;

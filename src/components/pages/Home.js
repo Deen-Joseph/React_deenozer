@@ -35,7 +35,7 @@ const Home = () => {
             return <Cards key={index} imageUrl={item.url} title={item.name} />;
           })}
         </div>
-        <div className="high">
+        <div className="high2">
           <h2>Blogs</h2>
         </div>
         <Blog></Blog>
