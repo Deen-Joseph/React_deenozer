@@ -2,7 +2,7 @@ import React from "react";
 import Cards from "../common/Cards/Cards";
 import "./Home.css";
 import Carouselz from "../common/Carousel/Carousel";
-import Blog from "../common/Blog/Blog"
+import Blog from "../common/Blog/Blog";
 
 const Home = () => {
   let items = [
@@ -26,13 +26,19 @@ const Home = () => {
   return (
     <div className="row-home">
       <>
-        {/* <Carouselz></Carouselz> */}
-       
-        {/* <Blog></Blog> */}
-        {items.map((item, index) => {
-          return <Cards key={index} imageUrl={item.url} title={item.name} />;
-        })}
-         pooo
+        <Carouselz></Carouselz>
+        <div className="high">
+          <h2>Highlights</h2>
+        </div>
+        <div className="flex-container">
+          {items.map((item, index) => {
+            return <Cards key={index} imageUrl={item.url} title={item.name} />;
+          })}
+        </div>
+        <div className="high">
+          <h2>Blogs</h2>
+        </div>
+        <Blog></Blog>
       </>
     </div>
   );

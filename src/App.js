@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Header from "./components/navigation/Header";
+// import Header from "./components/navigation/Header";
 
 const App = () => {
   const [page, setPage] = useState("login");
@@ -19,12 +19,7 @@ const App = () => {
   }
   return (
     <div className="App"> 
-    {     
-      <div>
-        
-        
-      </div>   
-    }
+  
       {/* {page === "login" ? (
         <Login onToggle={toggleForm} />
       ) : (

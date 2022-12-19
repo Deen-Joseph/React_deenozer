@@ -14,6 +14,9 @@ import Login from "./components/login/LoginPage";
 import Register from "./components/login/RegisterPage";
 
 import Header from "./components/navigation/Header";
+
+import Footer from "./components/navigation/Footer";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +57,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Header></Header>
-      <RouterProvider router={router} />    
+      <RouterProvider router={router} />
+      <Footer></Footer>
   </React.StrictMode>
 );
