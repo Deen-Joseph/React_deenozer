@@ -8,7 +8,7 @@ const Carouselz = () => {
     <Carousel showArrows={true} infiniteLoop={true}>
       
         <div className="full-carousel">
-          <img alt="" src="https://cdn.mos.cms.futurecdn.net/KeFYh6bJPo2AwHNWrBkeLa-970-80.jpg.webp" />
+          <img alt="" src="https://images.hindustantimes.com/img/2022/12/19/550x309/Soccer-World-Cup-Benzema-s-Redemption--1_167146171_1671461724219_1671461724343_1671461724343.jpg" />
           <p className="legend">Legend 1</p>
         </div>
         {/* <div className="full-carousel">
@@ -17,7 +17,7 @@ const Carouselz = () => {
         </div> */}
         <div className="full-carousel">
           <img alt="" src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/01/death-of-justice-league-header.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5" />
-          <p className="legend">Legend 3</p>
+          <p className="legend">Legend 2</p>
         </div>
       
     </Carousel>

@@ -1,12 +1,12 @@
 import "./Footer.css";
 const Footer = () => {
   return (
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="f">
+    <footer className="site-footer">
+      <div className="container">
+        <div className="row">
+          <div className="f">
             <h6>Quick Links</h6>
-            <ul class="footer-links">
+            <ul className="footer-links">
               <li>
                 <a href="http://scanfcode.com/about/">About Us</a>
               </li>
@@ -31,10 +31,10 @@ const Footer = () => {
         </div>
         <hr />
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="">
-            <p class="copyright-text">
+      <div className="container">
+        <div className="row">
+          <div className="">
+            <p className="copyright-text">
               Copyright &copy; 2017 All Rights Reserved by
               <a href="/">Deenozer</a>.
             </p>

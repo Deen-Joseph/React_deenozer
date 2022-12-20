@@ -28,7 +28,7 @@ const Home = () => {
       <>
         <Carouselz></Carouselz>
         <div className="high">
-          <h2>Highlights</h2>
+          <h2>This Week's Highlights</h2>
         </div>
         <div className="flex-container">
           {items.map((item, index) => {
