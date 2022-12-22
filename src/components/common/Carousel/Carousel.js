@@ -8,7 +8,7 @@ const Carouselz = () => {
     <Carousel showArrows={true} infiniteLoop={true}>
       
         <div className="full-carousel">
-          <img alt="" src="https://images.hindustantimes.com/img/2022/12/19/550x309/Soccer-World-Cup-Benzema-s-Redemption--1_167146171_1671461724219_1671461724343_1671461724343.jpg" />
+          <img alt="" src="https://media.cnn.com/api/v1/images/stellar/prod/221220023642-08-argentina-celebrations-122022.jpg?c=16x9&q=h_720,w_1280,c_fill" />
           <p className="legend">Legend 1</p>
         </div>
         {/* <div className="full-carousel">

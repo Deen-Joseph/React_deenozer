@@ -1,87 +1,109 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import './ClubsTab.css'
 
 const ClubTab =()=>{
-    let clubs = [
+    let confederation = [
         {
-          name: "Manchester United",
-          league: "English Premier League",
-          country: "England",
+          name: "UEFA",
+          continent: "Europe",
         },
         {
-          name: "Manchester City",
-          league: "English Premier League",
-          country: "England",
+          name: "CAF",
+          continent: "Africa",
         },
         {
-          name: "Newcastle United",
-          league: "English Premier League",
-          country: "England",
+          name: "AFC",
+          continent: "ASIA",
         },
         {
-          name: "Arsenal",
-          league: "English Premier League",
-          country: "England",
+          name: "CONMEBOL",
+          continent: "South America",
         },
         {
-          name: "Chelsea",
-          league: "English Premier League",
-          country: "England",
+          name: "OFC",
+          continent: "Oceania",
+        },
+        {
+          name: "CONCACAF",
+          continent: " North, Central America and Caribbean",
         },
       ];
     
       const {
         register,
         handleSubmit,
-        watch,
+        // watch,
+        reset,
         formState: { errors },
       } = useForm();
-      const onSubmit = (data) => console.log(data);
+      const onSubmit = (data) => {
+        console.log(data);      
+        reset()
+      }
+
+      const [images, setImages] = useState([]);
+      const [imageURLs, setImagesURLs] = useState([]);
+
+      useEffect(()=>{
+        if(images.length<1) return;
+        const newImageUrls = []
+        images.forEach(image=>newImageUrls.push(URL.createObjectURL(image)));
+        setImagesURLs(newImageUrls)
+      }, [images]);
+      
+
+      function onImageChange(e){
+        console.log('oll')
+        setImages([...e.target.files])
+      }
       //   console.log(watch("example"));
       //   console.log(watch("exampleRequired"));
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="container-form">
+            <h1>Clubs</h1>
             <ul className="flex-outer">
               <li>
-                <label htmlFor="first-name">First Name</label>
+                <label htmlFor="club-name">Club Name</label>
                 <input
                   type="text"
-                  id="first-name"
-                  {...register("first-name")}
-                  placeholder="Enter your first name here"
+                  id="club-name"
+                  {...register("club-name")}
+                  placeholder="Enter Club name"
                 ></input>
               </li>
               <li>
-                <label htmlFor="last-name">Last Name</label>
-                <input
-                  type="text"
-                  id="last-name"
-                  {...register("last-name", { required: true })}
-                  placeholder="Enter your last name here"
-                ></input>
-                {errors.exampleRequired && <span>This field is required</span>}
-              </li>
-              <li>
-                <label htmlFor="nation">Nationality</label>
+                <label htmlFor="nation">Nation</label>
                 <input
                   type="text"
                   id="nation"
-                  placeholder="Enter Nationality here"
+                  placeholder="Enter Club Nationality"
                   {...register("nation")}
                 ></input>
               </li>
               <li>
-                <label htmlFor="club">Club</label>
+                <label htmlFor="league-name">League Name</label>
+                <input
+                  type="text"
+                  id="league-name"
+                  {...register("league-name")}
+                  // , { required: true }
+                  placeholder="Enter League name here"
+                ></input>
+                {errors.exampleRequired && <span>This field is required</span>}
+              </li>
+              
+              <li>
+                <label htmlFor="conf">Confederation</label>
                 <select
-                  id="club"
-                  placeholder="Select your club"
-                  {...register("club")}
+                  id="conf"
+                  placeholder="Select Confederation"
+                  {...register("confederation")}
                 >
-                  {clubs.map((item, index) => {
+                  {confederation.map((item, index) => {
                     return (
-                      <option key={index} value={clubs.name}>
+                      <option key={index} value={confederation.name}>
                         {item.name}
                       </option>
                     );
@@ -89,12 +111,12 @@ const ClubTab =()=>{
                 </select>
               </li>
               <li>
-                <label htmlFor="dob">Date of birth</label>
+                <label htmlFor="dof">Date of founding</label>
                 <input
                   type="date"
-                  id="dob"
-                  placeholder="Enter Date of Birth here"
-                  {...register("dob")}
+                  id="dof"
+                  placeholder="Enter Date of founding"
+                  {...register("dof")}
                 ></input>
               </li>
               <li>
@@ -102,67 +124,37 @@ const ClubTab =()=>{
                 <textarea
                   rows="6"
                   id="about"
-                  placeholder="Enter Enter about Player"
-                  {...register("about")}
+                  placeholder="Enter about Club"
+                  {...register("about-club")}
                 ></textarea>
               </li>
+
+              <li>
+                <label htmlFor="ranking">Ranking</label>
+                <input
+                  type="number"
+                  id="ranking"
+                  
+                  placeholder="Enter Club Ranking"
+                  {...register("ranking")}
+                ></input>
+              </li>
+              <li>
+              <label htmlFor="logo">Club Logo</label>
+              <input
+                  type="file"
+                  id="logo"
+                  multiple
+                  accept="image/*"
+                  onChange={onImageChange}
+                  placeholder="Enter Club Logo"
+                  {...register("logo")}
+                ></input>
+                  {imageURLs.map(imageSrc=> <img alt="" src={imageSrc}></img>)}
+                
+              </li>
     
-              <li>
-                <label htmlFor="position">Position</label>
-                <select
-                  id="position"
-                  placeholder="Select Position"
-                  {...register("Position")}
-                >
-                  <option value="Forward">Forward</option>
-                  <option value="Striker">Striker</option>
-                  <option value="Secondary Striker">Secondary Striker</option>
-                  <option value="Left-Wing">Left-Wing</option>
-                  <option value="Right Wing">Right Wing</option>
-                  <option value="Left-Midfield<">Left-Midfield</option>
-                  <option value="Right-Midfield">Right-Midfield</option>
-                  <option value="Centre Attacking-Midfield">
-                    Centre Attacking-Midfield
-                  </option>
-                  <option value="Centre Midfield">Centre Midfield</option>
-                  <option value="Defensive Midfield">Defensive Midfield</option>
-                  <option value="Left-back">Left-back</option>
-                  <option value="Right-back">Right-back</option>
-                  <option value="Left Wing-Back">Left Wing-Back</option>
-                  <option value="Right Wing-Back">Right Wing-Back</option>
-                  <option value="Centre Back">Centre Back</option>
-                  <option value="Goal Keeper">Goal Keeper</option>
-                </select>
-              </li>
-              {/* <li>
-            <p>Age</p>
-            <ul className="flex-inner">
-              <li>
-                <input type="checkbox" id="twenty-to-twentynine"></input>
-                <label htmlFor="twenty-to-twentynine">20-29</label>
-              </li>
-              <li>
-                <input type="checkbox" id="thirty-to-thirtynine"></input>
-                <label htmlFor="thirty-to-thirtynine">30-39</label>
-              </li>
-              <li>
-                <input type="checkbox" id="fourty-to-fourtynine"></input>
-                <label htmlFor="fourty-to-fourtynine">40-49</label>
-              </li>
-              <li>
-                <input type="checkbox" id="fifty-to-fiftynine"></input>
-                <label htmlFor="fifty-to-fiftynine">50-59</label>
-              </li>
-              <li>
-                <input type="checkbox" id="sixty-to-sixtynine"></input>
-                <label htmlFor="sixty-to-sixtynine">60-69</label>
-              </li>
-              <li>
-                <input type="checkbox" id="other"></input>
-                <label htmlFor="other">Other</label>
-              </li>
-            </ul>
-          </li> */}
+              
               <li>
                 <button className="formSubmit" type="submit">
                   Submit

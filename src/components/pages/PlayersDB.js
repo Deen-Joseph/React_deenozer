@@ -1,68 +1,62 @@
 import React, { useState } from "react";
 import "./PlayersDB.css";
 import ClubTab from "./tabs/ClubsTab";
+import FaTabs from "./tabs/FaTabs";
+import EventsTab from "./tabs/EventsTab";
+import PlayersTab from "./tabs/PlayersTab";
 
-const PlayersDB = () => {
-  //  Functions to handle Tab Switching
-  const handleTab1 = () => {
-    // update the state to tab1
-    setActiveTab("tab1");
+const PlayersDB = () => { 
+
+  const [currentTab, setCurrentTab] = useState("1");
+  const tabs = [
+    {
+      id: 1,
+      tabTitle: "Players",
+      content: <PlayersTab></PlayersTab>,
+    },
+    {
+      id: 2,
+      tabTitle: "Clubs",
+      content: <ClubTab></ClubTab>,
+    },
+    {
+      id: 3,
+      tabTitle: "FA",
+      content: <FaTabs></FaTabs>,
+    },
+    {
+      id: 4,
+      tabTitle: "Events",
+      content: <EventsTab></EventsTab>,
+    },
+  ];
+
+  const handleTabClick = (e) => {
+    setCurrentTab(e.target.id);
   };
-  const handleTab2 = () => {
-    // update the state to tab2
-    setActiveTab("tab2");
-  };
-  const handleTab3 = () => {
-    // update the state to tab2
-    setActiveTab("tab3");
-  };
-  const handleTab4 = () => {
-    // update the state to tab2
-    setActiveTab("tab4");
-  };
-  const [activeTab, setActiveTab] = useState("tab1");
+
   return (
-    <div className="Tabs">
-      {/* Tab nav */}
-      <ul className="nav">
-        <li
-          className={activeTab === "tab1" ? "active" : ""}
-          onClick={handleTab1}
-        >
-          Club Tab
-        </li>
-        <li
-          className={activeTab === "tab2" ? "active" : ""}
-          onClick={handleTab2}
-        >
-          Player Tab
-        </li>
-        <li
-          className={activeTab === "tab3" ? "active" : ""}
-          onClick={handleTab3}
-        >
-          Events Tab
-        </li>
-        <li
-          className={activeTab === "tab4" ? "active" : ""}
-          onClick={handleTab4}
-        >
-          FA Tab
-        </li>
-      </ul>
-      <div className="outlet">
-        <div title="Tab 1" id="tab1" activeTab={activeTab}>
-          <ClubTab ></ClubTab>
-        </div>
-        <div title="Tab 2" id="tab2" activeTab={activeTab}>
-          <ClubTab ></ClubTab>
-        </div>
-        <div title="Tab 3" id="tab3" activeTab={activeTab}>
-          <ClubTab ></ClubTab>
-        </div>
-        <div title="Tab 4" id="tab4" activeTab={activeTab}>
-          <ClubTab ></ClubTab>
-        </div>
+    <div >
+      <div className="Tabs">
+        <ul className="nav">
+          {tabs.map((tab, i) => (
+            <li
+              key={i}
+              id={tab.id}
+              className={currentTab === `${tab.id}` ? "active" : ""}
+              onClick={handleTabClick}
+            >
+              {tab.tabTitle}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="content">
+        {tabs.map((tab, i) => (
+          <div key={i}>
+            {currentTab === `${tab.id}` && <div>{tab.content}</div>}
+          </div>
+        ))}
       </div>
     </div>
   );
