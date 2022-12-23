@@ -12,8 +12,12 @@ import FA from "./components/pages/FA";
 import Players from "./components/pages/Players";
 import Login from "./components/login/LoginPage";
 import Register from "./components/login/RegisterPage";
+import PlayersDB from "./components/pages/PlayersDB"
 
 import Header from "./components/navigation/Header";
+
+import Footer from "./components/navigation/Footer";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +51,9 @@ const router = createBrowserRouter([
   {
     path: "players",
     element: <Players />,
+  }, {
+    path: "database",
+    element: <PlayersDB />,
   },
 ]);
 
@@ -54,6 +61,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Header></Header>
-      <RouterProvider router={router} />    
+      <RouterProvider router={router} />
+      <Footer></Footer>
   </React.StrictMode>
 );

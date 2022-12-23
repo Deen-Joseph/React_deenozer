@@ -25,6 +25,7 @@ const showNav =()=>{
         <a href="/clubs">Clubs</a>
         <a href="/fa">FA</a>
         <a href="/events">Events</a>
+        <a href="/database">Database</a>
         <button className="nav-btn nav-close-btn" onClick={showNav}>Menu</button>
       </nav>
         <button className="nav-btn" onClick={showNav}>Menu</button>
