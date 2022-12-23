@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import './PlayersTab.css'
+
+
+const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
 const PlayersTab =()=>{
     let clubs = [
@@ -43,6 +46,42 @@ const PlayersTab =()=>{
         console.log(data);
         reset()
       } 
+
+      const [file, setFile] = useState(null);
+      const [fileDataURL, setFileDataURL] = useState(null);
+      const playerImage = register('logo')
+    
+      const changeHandler = (e) => {
+       
+        const file = e.target.files[0];
+        if (!file.type.match(imageMimeType)) {
+          alert("Image mime type is not valid");
+          return;
+        }
+        setFile(file);
+      };
+    
+      useEffect(() => {
+        let fileReader,
+          isCancel = false;
+        if (file) {
+          fileReader = new FileReader();
+          fileReader.onload = (e) => {
+            const { result } = e.target;
+            if (result && !isCancel) {
+              setFileDataURL(result);
+            }
+          };
+          fileReader.readAsDataURL(file);
+        }
+        return () => {
+          isCancel = true;
+          if (fileReader && fileReader.readyState === 1) {
+            fileReader.abort();
+          }
+        };
+      }, [file]);
+
       //   console.log(watch("example"));
       //   console.log(watch("exampleRequired"));
       return (
@@ -169,6 +208,25 @@ const PlayersTab =()=>{
               </li>
             </ul>
           </li> */}
+<li>
+<label htmlFor="logo">Player Image</label>
+           
+           <input
+             type="file"
+             id="logo"
+             accept=".png, .jpg, .jpeg"
+             {...playerImage}
+             onChange={changeHandler}
+             placeholder="Upload Player Image"
+             
+           ></input>
+         </li>
+         <li>
+           <label htmlFor="preview">Preview</label>
+           {fileDataURL ? (
+             <img alt="" id="preview" className="img-prev" src={fileDataURL}></img>
+           ) : null}
+         </li>
               <li>
                 <button className="formSubmit" type="submit">
                   Submit
