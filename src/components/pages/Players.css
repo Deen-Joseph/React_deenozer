@@ -1,0 +1,33 @@
+
+.student-profile .card {
+    border-radius: 10px;
+    background: #29335c;
+    color: white;
+    margin: 2rem;
+}
+
+.profile{
+    
+}
+.student-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.student-profile .card p {
+    font-size: 16px;
+    color: #000;
+}
+
+.student-profile .table th,
+.student-profile .table td {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+}
+
+@media screen and (max-width: 1800px) {
+    .profile{   
+      width: 100%;
+    }
+  }
