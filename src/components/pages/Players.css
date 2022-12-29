@@ -1,33 +1,61 @@
-
-.student-profile .card {
-    border-radius: 10px;
-    background: #29335c;
-    color: white;
-    margin: 2rem;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.profile{
-    
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
 }
-.student-profile .card h3 {
-    font-size: 20px;
-    font-weight: 700;
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4d5a8f; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(61, 120, 189); 
+}
+
+
+.player-profile .card {
+  border-radius: 10px;
+  background: #29335c;
+  color: white;
+  margin: 2rem;
+}
+.search{
+  height: 38.7rem;
+  overflow: hidden scroll;
+}
+
+
+.details {
+  text-align: center;
 }
 
 .student-profile .card p {
-    font-size: 16px;
-    color: #000;
+  color: white;
 }
 
-.student-profile .table th,
-.student-profile .table td {
-    font-size: 14px;
-    padding: 5px 10px;
-    color: #000;
+table {
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 1800px) {
-    .profile{   
-      width: 100%;
-    }
+
+@media screen and (min-width: 1100px) {
+  .profile {
+    width: 95%;
   }
+  .search {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile_img{
+    width: 50%;
+  }
+}

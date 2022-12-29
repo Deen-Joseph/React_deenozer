@@ -118,10 +118,24 @@ const PlayersTab =()=>{
                 ></input>
               </li>
               <li>
+                <label htmlFor="gender">Gender</label>
+                <select
+                  id="gender"
+                  placeholder="Select Gender"
+                  {...register("gender")}
+                >
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                  
+                </select>
+              </li>
+              <li></li>
+              <li>
                 <label htmlFor="club">Club</label>
                 <select
                   id="club"
-                  placeholder="Select your club"
+                  placeholder="Select club"
                   {...register("club")}
                 >
                   {clubs.map((item, index) => {
