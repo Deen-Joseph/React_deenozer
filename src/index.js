@@ -21,7 +21,7 @@ import Footer from "./components/navigation/Footer";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
     errorElement: <NotFound />,
   },
   {

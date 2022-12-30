@@ -3,7 +3,7 @@ import React from "react";
  const Events= ()=>{
 return (
 <div>
-<h1>This is Events</h1>
+<h1>Oh Ho... Events page is under Maintenance. Will Launch Soon</h1>
 </div>
 )
 }
