@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import classes from "./Login.module.css";
 import "./LoginReg.css";
-import axios from 'axios';
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = (props) => {
   const [enteredEmail, setEmail] = useState("");
@@ -33,27 +34,41 @@ const Login = (props) => {
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length > 7);
   };
-
+  const toastConfig = {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  };
   const submitHandler = (event) => {
-    console.log("logged");
     event.preventDefault();
     const loginData = {
       email: enteredEmail,
       password: enteredPassword,
     };
-    axios.post('http://localhost:3001/login', loginData).then(
-      response=>{
-        localStorage.setItem('jwt', response)
-        console.log(response.data)
-      }
-    ).catch(error=>{
-      console.log(error)
-    })
-    console.log(loginData);
+    axios
+      .post("http://localhost:3001/login", loginData)
+      .then((response) => {
+        toast.success("Login Success!", toastConfig);
+        localStorage.setItem("jwt", response);
+        // console.log(response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status === 401) {
+          toast.error("Invalid Credentials, Unauthorized", toastConfig);
+        } else toast.error(error.response.data.message, toastConfig);
+      });
   };
 
   return (
     <>
+      <div>
+        <ToastContainer />
+      </div>
       <div className="log-app">
         <div className="auth-form-container">
           <h1>Login</h1>
