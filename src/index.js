@@ -10,8 +10,8 @@ import Events from "./components/pages/Events";
 import Clubs from "./components/pages/Clubs";
 import FA from "./components/pages/FA";
 import Players from "./components/pages/Players";
-import Login from "./components/login/LoginPage";
-import Register from "./components/login/RegisterPage";
+import LogRegPage from "./components/login/LogRegTab";
+// import Register from "./components/login/RegisterPage";
 import PlayersDB from "./components/pages/PlayersDB"
 
 import Header from "./components/navigation/Header";
@@ -21,17 +21,21 @@ import Footer from "./components/navigation/Footer";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <LogRegPage />,
     errorElement: <NotFound />,
   },
   {
-    path: "login",
-    element: <Login />,
+    path: "/login",
+    element: <LogRegPage />,   
   },
-  {
-    path: "register",
-    element: <Register />,
-  },
+  // {
+  //   path: "login",
+  //   element: <Login />,
+  // },
+  // {
+  //   path: "register",
+  //   element: <Register />,
+  // },
   {
     path: "home",
     element: <Home />,

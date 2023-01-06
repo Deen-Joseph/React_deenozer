@@ -25,7 +25,7 @@ const Header = () => {
         <a href="/fa">FA</a>
         <a href="/events">Events</a>
         <a href="/database">Database</a>
-        <a href="/login">Login</a>
+        <a href="/login">Login/Register</a>
         <button className="nav-btn nav-close-btn" onClick={showNav}>
           Menu
         </button>

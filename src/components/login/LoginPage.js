@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./Login.module.css";
+import classes from "./Common.module.css";
 import "./LoginReg.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -44,16 +44,19 @@ const Login = (props) => {
     progress: undefined,
   };
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault();    
+        setEmail("");
+        setPassword("");
     const loginData = {
       email: enteredEmail,
       password: enteredPassword,
     };
     axios
-      .post("http://localhost:3001/login", loginData)
+      .post("http://localhost:3001/auth/login", loginData)
       .then((response) => {
+        console.log(response.data.access_token)
         toast.success("Login Success!", toastConfig);
-        localStorage.setItem("jwt", response);
+        localStorage.setItem("access_token", response.data.access_token);
         // console.log(response.data)
       })
       .catch((error) => {
@@ -124,14 +127,14 @@ const Login = (props) => {
               </button>
             </div>
           </form>
-          <div>
+          {/* <div>
             <button
               className="link-btn"
               onClick={() => props.onToggle("register")}
             >
               Don't Have Account? Register Here.
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
