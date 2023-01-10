@@ -175,22 +175,22 @@ const PlayersTab =()=>{
                 >
                   <option value="Forward">Forward</option>
                   <option value="Striker">Striker</option>
-                  <option value="Secondary Striker">Secondary Striker</option>
-                  <option value="Left-Wing">Left-Wing</option>
-                  <option value="Right Wing">Right Wing</option>
-                  <option value="Left-Midfield<">Left-Midfield</option>
-                  <option value="Right-Midfield">Right-Midfield</option>
-                  <option value="Centre Attacking-Midfield">
+                  <option value="Secondary_Striker">Secondary Striker</option>
+                  <option value="Left_Wing">Left-Wing</option>
+                  <option value="Right_Wing">Right Wing</option>
+                  <option value="Left_Midfield<">Left-Midfield</option>
+                  <option value="Right_Midfield">Right-Midfield</option>
+                  <option value="Centre_Attacking_Midfield">
                     Centre Attacking-Midfield
                   </option>
-                  <option value="Centre Midfield">Centre Midfield</option>
-                  <option value="Defensive Midfield">Defensive Midfield</option>
-                  <option value="Left-back">Left-back</option>
-                  <option value="Right-back">Right-back</option>
-                  <option value="Left Wing-Back">Left Wing-Back</option>
-                  <option value="Right Wing-Back">Right Wing-Back</option>
-                  <option value="Centre Back">Centre Back</option>
-                  <option value="Goal Keeper">Goal Keeper</option>
+                  <option value="Centre_Midfield">Centre Midfield</option>
+                  <option value="Defensive_Midfield">Defensive Midfield</option>
+                  <option value="Left_back">Left-back</option>
+                  <option value="Right_back">Right-back</option>
+                  <option value="Left_Wing_Back">Left Wing-Back</option>
+                  <option value="Right_Wing_Back">Right Wing-Back</option>
+                  <option value="Centre_Back">Centre Back</option>
+                  <option value="Goal_Keeper">Goal Keeper</option>
                 </select>
               </li>
               {/* <li>

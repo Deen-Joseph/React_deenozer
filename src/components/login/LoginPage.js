@@ -3,6 +3,8 @@ import classes from "./Common.module.css";
 import "./LoginReg.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import jwt_decode from 'jwt-decode';
+import { useNavigate  } from "react-router-dom";
 
 const Login = (props) => {
   const [enteredEmail, setEmail] = useState("");
@@ -10,6 +12,8 @@ const Login = (props) => {
   const [emailIsValid, setEmailIsValid] = useState();
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+
+  const navigate = useNavigate()
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -54,10 +58,10 @@ const Login = (props) => {
     axios
       .post("http://localhost:3001/auth/login", loginData)
       .then((response) => {
-        console.log(response.data.access_token)
-        toast.success("Login Success!", toastConfig);
+        const decoded = jwt_decode(response.data.access_token);
+        toast.success(`Login Success! Welcome ${decoded.name} `, toastConfig);
         localStorage.setItem("access_token", response.data.access_token);
-        // console.log(response.data)
+        if(response.data.access_token) navigate("/home");       
       })
       .catch((error) => {
         console.log(error);
