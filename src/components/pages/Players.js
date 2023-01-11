@@ -17,15 +17,8 @@ const Players = () => {
       });
   };
   useEffect(() => {
-    getAllData();
+    getAllData();    
   }, []);
-
-  // const getDate = (data) => {
-  //   data = data.st
-  //   var date = new Date();
-  //   date.toISOString().substring(0, 10);
-  //   return date;
-  // };
 
   return (
     <div>
@@ -106,7 +99,7 @@ const Players = () => {
                     <tr>
                       <th width="30%">Date of Birth</th>
                       <td width="2%">:</td>
-                      <td>{data.dob.split("T")[0]}</td>
+                      <td>{data.dob?.split("T")[0]}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -119,7 +112,18 @@ const Players = () => {
                   <h3>About</h3>
                 </div>
                 <div className="card-body" style={{ paddingRight: "0.25rem" }}>
-                  <p>{data.about}</p>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum
+                    passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum
+                  </p>
                 </div>
               </div>
             </div>
